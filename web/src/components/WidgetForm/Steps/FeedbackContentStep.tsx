@@ -33,6 +33,7 @@ export function FeedbackContentStep(props: FeedbackContentStepProps) {
       console.log(error);
     }
     setIsSendingFeedback(false);
+    props.onFeedbackSent();
   };
 
   return (
