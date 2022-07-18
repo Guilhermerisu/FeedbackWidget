@@ -23,13 +23,16 @@ export function FeedbackContentStep(props: FeedbackContentStepProps) {
 
     setIsSendingFeedback(true);
 
-    await api.post("/feedbacks", {
-      type: props.feedbackType,
-      comment,
-      screenshot,
-    });
-    setIsSendingFeedback(false);
-    props.onFeedbackSent();
+    try {
+      await api.post("/feedback", {
+        screenshot,
+        comment,
+        type: props.feedbackType,
+      });
+    } catch (error) {
+      setIsSendingFeedback(false);
+      console.log(error);
+    }
   };
 
   return (
