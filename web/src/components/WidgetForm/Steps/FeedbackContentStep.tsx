@@ -30,9 +30,9 @@ export function FeedbackContentStep(props: FeedbackContentStepProps) {
         type: props.feedbackType,
       });
     } catch (error) {
-      setIsSendingFeedback(false);
       console.log(error);
     }
+    setIsSendingFeedback(false);
   };
 
   return (
